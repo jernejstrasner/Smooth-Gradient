@@ -7,6 +7,7 @@
 //
 
 #import "JSTViewController.h"
+#import "JSTGradientView.h"
 
 @interface JSTViewController ()
 
@@ -24,6 +25,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)switchMode:(UISegmentedControl *)sender
+{
+	[(JSTGradientView *)self.view redrawSmooth:sender.selectedSegmentIndex];
 }
 
 @end

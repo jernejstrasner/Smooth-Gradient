@@ -1,5 +1,5 @@
 //
-//  JSTViewController.h
+//  JSTGradientView.h
 //  SmoothGradient
 //
 //  Created by Jernej Strasner on 11/3/13.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JSTViewController : UIViewController
+@interface JSTGradientView : UIView
 
-- (IBAction)switchMode:(UISegmentedControl *)sender;
+- (void)redrawSmooth:(BOOL)smooth;
 
 @end

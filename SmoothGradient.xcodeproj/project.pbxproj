@@ -21,6 +21,7 @@
 		B8688515182757B50004B837 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86884F7182757B40004B837 /* UIKit.framework */; };
 		B868851D182757B50004B837 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B868851B182757B50004B837 /* InfoPlist.strings */; };
 		B868851F182757B50004B837 /* SmoothGradientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B868851E182757B50004B837 /* SmoothGradientTests.m */; };
+		B868852A182757DF0004B837 /* JSTGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688529182757DF0004B837 /* JSTGradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		B868851A182757B50004B837 /* SmoothGradientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmoothGradientTests-Info.plist"; sourceTree = "<group>"; };
 		B868851C182757B50004B837 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B868851E182757B50004B837 /* SmoothGradientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmoothGradientTests.m; sourceTree = "<group>"; };
+		B8688528182757DF0004B837 /* JSTGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTGradientView.h; sourceTree = "<group>"; };
+		B8688529182757DF0004B837 /* JSTGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTGradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 				B8688505182757B40004B837 /* Main.storyboard */,
 				B8688508182757B40004B837 /* JSTViewController.h */,
 				B8688509182757B40004B837 /* JSTViewController.m */,
+				B868852B182757E40004B837 /* Views */,
 				B868850B182757B40004B837 /* Images.xcassets */,
 				B86884FA182757B40004B837 /* Supporting Files */,
 			);
@@ -150,6 +154,15 @@
 				B868851B182757B50004B837 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B868852B182757E40004B837 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8688528182757DF0004B837 /* JSTGradientView.h */,
+				B8688529182757DF0004B837 /* JSTGradientView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +265,7 @@
 			files = (
 				B868850A182757B40004B837 /* JSTViewController.m in Sources */,
 				B8688504182757B40004B837 /* JSTAppDelegate.m in Sources */,
+				B868852A182757DF0004B837 /* JSTGradientView.m in Sources */,
 				B8688500182757B40004B837 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
