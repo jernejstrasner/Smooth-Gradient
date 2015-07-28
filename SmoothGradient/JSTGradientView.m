@@ -15,7 +15,11 @@
     [self setNeedsDisplay]; \
 }
 
-@implementation JSTGradientView
+@implementation JSTGradientView {
+    CGColorSpaceRef colorSpace;
+    CGFloat startColorComps[4];
+    CGFloat endColorComps[4];
+}
 
 - (instancetype)init
 {
@@ -41,96 +45,107 @@
 - (void)setup
 {
     self.contentMode = UIViewContentModeRedraw;
+    colorSpace = CGColorSpaceCreateDeviceRGB();
 }
 
-SyntesizeRedrawableProperty(setSmooth, _smooth, BOOL)
+- (void)dealloc
+{
+    CGColorSpaceRelease(colorSpace);
+}
+
 SyntesizeRedrawableProperty(setReverse, _reverse, BOOL)
-SyntesizeRedrawableProperty(setStartColor, _startColor, UIColor *)
+SyntesizeRedrawableProperty(setSlopeFactor, _slopeFactor, CGFloat)
+
+- (void)setStartColor:(UIColor *)startColor
+{
+    if (_startColor == startColor) return;
+    _startColor = startColor;
+
+    GetColorComponents(startColor.CGColor, startColorComps);
+    [self setNeedsDisplay];
+}
+
+- (void)setEndColor:(UIColor *)endColor
+{
+    if (_endColor == endColor) return;
+    _endColor = endColor;
+
+    GetColorComponents(endColor.CGColor, endColorComps);
+    [self setNeedsDisplay];
+}
+
+void GetColorComponents(CGColorRef color, CGFloat *outComponents) {
+    size_t numberOfComponents = CGColorGetNumberOfComponents(color);
+    if (numberOfComponents != 4) assert("Only RGBA colors supported!");
+    const CGFloat *components = CGColorGetComponents(color);
+    memcpy(outComponents, components, sizeof(CGFloat)*numberOfComponents);
+}
 
 - (void)drawRect:(CGRect)rect
 {
-    // Draw the gradient background
+    // Prepare general variables
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
-    // Get color components
-    CGColorRef color = _startColor.CGColor;
-    const CGFloat *startColorComponents = CGColorGetComponents(color);
-    CGFloat *colorComponents = calloc(8, sizeof(CGFloat));
-    memset(colorComponents, 1, 8*sizeof(CGFloat)); // Set to white by default
-    memcpy(colorComponents, startColorComponents, CGColorGetNumberOfComponents(color)*sizeof(CGFloat)); // Copy first color
-    memcpy(colorComponents+4, startColorComponents, CGColorGetNumberOfComponents(color)*sizeof(CGFloat)); // Copy second color
-    colorComponents[3] = _reverse ? 1.0f : 0.0f; // Alpha value for the start color
-    colorComponents[7] = _reverse ? 0.0f : 1.0f; // Alpha value for the end color
+    // Shading function info
+    CGFloat functionInfo[9];
+    // First color
+    memcpy(functionInfo, (_reverse ? endColorComps : startColorComps), sizeof(CGFloat)*4);
+    // Second color
+    memcpy(functionInfo+4, (_reverse ? startColorComps : endColorComps), sizeof(CGFloat)*4);
+    // Slope factor
+    functionInfo[8] = _slopeFactor;
 
-    if (_smooth) {
-        // Define the shading callbacks
-        CGFunctionCallbacks callbacks = {0, shadingFunction, NULL};
+    // Define the shading callbacks
+    CGFunctionCallbacks callbacks = {0, shadingFunction, NULL};
 
-        // As input to our function we want 1 value in the range [0.0, 1.0].
-        // This is our position within the 'gradient'.
-        size_t domainDimension = 1;
-        CGFloat domain[2] = {0.0f, 1.0f};
+    // As input to our function we want 1 value in the range [0.0, 1.0].
+    // This is our position within the gradient.
+    size_t domainDimension = 1;
+    CGFloat domain[2] = {0.0f, 1.0f};
 
-        // The output of our function is 2 values, each in the range [0.0, 1.0].
-        // This is our selected color for the input position.
-        // The 2 values are the white and alpha components.
-        size_t rangeDimension = 4;
-        CGFloat range[8] = {
-            0.0f, 1.0f,
-            0.0f, 1.0f,
-            0.0f, 1.0f,
-            0.0f, 1.0f
-        };
+    // The output of our shading function are 4 values, each in the range [0.0, 1.0].
+    // By specifying 4 ranges here, we limit each color component to that range. Values outside of the range get clipped.
+    size_t rangeDimension = 4;
+    CGFloat range[8] = {
+        0.0f, 1.0f, // R
+        0.0f, 1.0f, // G
+        0.0f, 1.0f, // B
+        0.0f, 1.0f  // A
+    };
 
-        // Create the shading finction
-        CGFunctionRef function = CGFunctionCreate(colorComponents, domainDimension, domain, rangeDimension, range, &callbacks);
+    // Create the shading function
+    CGFunctionRef function = CGFunctionCreate(functionInfo, domainDimension, domain, rangeDimension, range, &callbacks);
 
-        // Create the shading object
-        CGShadingRef shading = CGShadingCreateAxial(colorSpace, CGPointMake(1, rect.size.height), CGPointMake(1, 0), function, YES, YES);
+    // Create the shading object
+    CGShadingRef shading = CGShadingCreateAxial(colorSpace, CGPointMake(1, rect.size.height), CGPointMake(1, 0), function, YES, YES);
 
-        // Draw the shading
-        CGContextDrawShading(context, shading);
-
-        // Clean up
-        CGFunctionRelease(function);
-        CGShadingRelease(shading);
-    }
-    else {
-        // Color locations
-        CGFloat locations[2] = {0.0f, 1.0f};
-
-        // The gradient
-        CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colorComponents, locations, 2);
-
-        // Draw the gradient
-        CGContextDrawLinearGradient(context, gradient, CGPointMake(1, rect.size.height), CGPointMake(1, 0), kCGGradientDrawsAfterEndLocation | kCGGradientDrawsBeforeStartLocation);
-
-        // Clean up
-        CGGradientRelease(gradient);
-    }
+    // Draw the shading
+    CGContextDrawShading(context, shading);
 
     // Clean up
-    CGColorSpaceRelease(colorSpace);
-    free(colorComponents);
+    CGFunctionRelease(function);
+    CGShadingRelease(shading);
 }
 
 // This is the callback of our shading function.
-// info:    not needed
+// info:    color and slope information
 // inData:  contains a single float that gives is the current position within the gradient
 // outData: we fill this with the color to display at the given position
 static void shadingFunction(void *info, const CGFloat *inData, CGFloat *outData)
 {
-    CGFloat *color = info; // Pointer to the components of the 2 colors we're interpolating (only using one color for now)
+    CGFloat *colors = info; // Pointer to the components of the 2 colors we're interpolating
+    CGFloat slopeFactor = colors[8]; // Slope factor stored in the colors array
     float p = inData[0]; // Position in gradient
-    outData[0] = color[0];
-    outData[1] = color[1];
-    outData[2] = color[2];
-    outData[3] = fabs(color[3]-slope(p, 2.0f)); // Alpha channel interpolation
+    float q = slope(p, slopeFactor); // Slope value
+    outData[0] = colors[0] + (colors[4] - colors[0])*q;
+    outData[1] = colors[1] + (colors[5] - colors[1])*q;
+    outData[2] = colors[2] + (colors[6] - colors[2])*q;
+    outData[3] = colors[3] + (colors[7] - colors[3])*q;
 }
 
 // Distributes values on a slope aka. ease-in ease-out
-static float slope(float x, float A) {
+static float slope(float x, float A)
+{
     float p = powf(x, A);
     return p/(p + powf(1.0f-x, A));
 }

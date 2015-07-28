@@ -10,8 +10,9 @@
 
 @interface JSTGradientView : UIView
 
-@property (nonatomic, assign) IBInspectable BOOL smooth;
+@property (nonatomic, assign) IBInspectable CGFloat slopeFactor;
 @property (nonatomic, assign) IBInspectable BOOL reverse;
 @property (nonatomic, retain) IBInspectable UIColor *startColor;
+@property (nonatomic, retain) IBInspectable UIColor *endColor;
 
 @end

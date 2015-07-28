@@ -13,7 +13,11 @@
 @interface JSTViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet JSTGradientView *gradientView;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UILabel *factorLabel;
 
-- (IBAction)switchMode:(UISegmentedControl *)sender;
+- (IBAction)reset:(id)sender;
+- (IBAction)reverse:(id)sender;
+- (IBAction)slopeFactorChanged:(UISlider *)sender;
 
 @end

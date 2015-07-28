@@ -31,35 +31,58 @@
                     <view key="view" contentMode="scaleToFill" id="d4d-5p-x2B" customClass="JSTGradientView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slope factor: 2x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxW-Ne-JRM">
+                                <rect key="frame" x="8" y="574" width="102" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GxW-Ne-JRM" firstAttribute="leading" secondItem="d4d-5p-x2B" secondAttribute="leading" constant="8" id="7Uc-2f-JmB"/>
+                            <constraint firstItem="NUo-el-9Sz" firstAttribute="top" secondItem="GxW-Ne-JRM" secondAttribute="bottom" constant="8" id="THP-M3-zYe"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="reverse" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="39M-QE-wSc">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="1W4-Ja-TMO">
-                            <rect key="frame" x="236" y="7" width="128" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Normal"/>
-                                <segment title="Smooth"/>
-                            </segments>
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="crg-g1-Yk8">
                             <connections>
-                                <action selector="switchMode:" destination="jAs-ix-hgd" eventType="valueChanged" id="1JC-EN-525"/>
+                                <action selector="reset:" destination="jAs-ix-hgd" id="DB5-ch-joa"/>
                             </connections>
-                        </segmentedControl>
+                        </barButtonItem>
+                        <slider key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="15" id="9Qc-FJ-33v">
+                            <rect key="frame" x="67" y="7" width="448" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="slopeFactorChanged:" destination="jAs-ix-hgd" eventType="valueChanged" id="aWI-5p-lai"/>
+                            </connections>
+                        </slider>
+                        <barButtonItem key="rightBarButtonItem" title="Reverse" id="88R-Ri-uZ8">
+                            <connections>
+                                <action selector="reverse:" destination="jAs-ix-hgd" id="GXd-dx-DS2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="factorLabel" destination="GxW-Ne-JRM" id="M1F-AH-ZY8"/>
                         <outlet property="gradientView" destination="d4d-5p-x2B" id="1YP-DB-9es"/>
+                        <outlet property="slider" destination="9Qc-FJ-33v" id="pGq-Dj-VQJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7c-fJ-Nvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.125" y="107.74647887323943"/>
+            <point key="canvasLocation" x="163" y="107"/>
         </scene>
     </scenes>
 </document>
