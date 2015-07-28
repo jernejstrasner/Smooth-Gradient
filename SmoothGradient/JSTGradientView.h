@@ -10,6 +10,8 @@
 
 @interface JSTGradientView : UIView
 
-- (void)redrawSmooth:(BOOL)smooth;
+@property (nonatomic, assign) IBInspectable BOOL smooth;
+@property (nonatomic, assign) IBInspectable BOOL reverse;
+@property (nonatomic, retain) IBInspectable UIColor *startColor;
 
 @end

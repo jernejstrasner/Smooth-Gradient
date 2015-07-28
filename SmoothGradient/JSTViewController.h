@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class JSTGradientView;
+
 @interface JSTViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet JSTGradientView *gradientView;
 
 - (IBAction)switchMode:(UISegmentedControl *)sender;
 

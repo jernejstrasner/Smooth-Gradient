@@ -13,7 +13,7 @@
 
 - (IBAction)switchMode:(UISegmentedControl *)sender
 {
-	[(JSTGradientView *)self.view redrawSmooth:sender.selectedSegmentIndex];
+    self.gradientView.smooth = sender.selectedSegmentIndex;
 }
 
 @end
