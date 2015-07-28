@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B86884EF182757B40004B837"
-               BuildableName = "SmoothGradient.app"
-               BlueprintName = "SmoothGradient"
+               BuildableName = "SampleApp.app"
+               BlueprintName = "SampleApp"
                ReferencedContainer = "container:SmoothGradient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SmoothGradient.app"
-            BlueprintName = "SmoothGradient"
+            BuildableName = "SampleApp.app"
+            BlueprintName = "SampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SmoothGradient.app"
-            BlueprintName = "SmoothGradient"
+            BuildableName = "SampleApp.app"
+            BlueprintName = "SampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SmoothGradient.app"
-            BlueprintName = "SmoothGradient"
+            BuildableName = "SampleApp.app"
+            BlueprintName = "SampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

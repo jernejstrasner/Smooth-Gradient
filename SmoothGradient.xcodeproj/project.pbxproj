@@ -16,22 +16,8 @@
 		B8688507182757B40004B837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8688505182757B40004B837 /* Main.storyboard */; };
 		B868850A182757B40004B837 /* JSTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688509182757B40004B837 /* JSTViewController.m */; };
 		B868850C182757B40004B837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B868850B182757B40004B837 /* Images.xcassets */; };
-		B8688513182757B50004B837 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8688512182757B50004B837 /* XCTest.framework */; };
-		B8688514182757B50004B837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86884F3182757B40004B837 /* Foundation.framework */; };
-		B8688515182757B50004B837 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86884F7182757B40004B837 /* UIKit.framework */; };
-		B868851D182757B50004B837 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B868851B182757B50004B837 /* InfoPlist.strings */; };
 		B868852A182757DF0004B837 /* JSTGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688529182757DF0004B837 /* JSTGradientView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B8688516182757B50004B837 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B86884E8182757B40004B837 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B86884EF182757B40004B837;
-			remoteInfo = SmoothGradient;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B86884F0182757B40004B837 /* SmoothGradient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmoothGradient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,10 +34,7 @@
 		B8688508182757B40004B837 /* JSTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSTViewController.h; sourceTree = "<group>"; };
 		B8688509182757B40004B837 /* JSTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSTViewController.m; sourceTree = "<group>"; };
 		B868850B182757B40004B837 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B8688511182757B50004B837 /* SmoothGradientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmoothGradientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8688512182757B50004B837 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B868851A182757B50004B837 /* SmoothGradientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmoothGradientTests-Info.plist"; sourceTree = "<group>"; };
-		B868851C182757B50004B837 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B8688528182757DF0004B837 /* JSTGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTGradientView.h; sourceTree = "<group>"; };
 		B8688529182757DF0004B837 /* JSTGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTGradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,24 +50,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B868850E182757B50004B837 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B8688513182757B50004B837 /* XCTest.framework in Frameworks */,
-				B8688515182757B50004B837 /* UIKit.framework in Frameworks */,
-				B8688514182757B50004B837 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B86884E7182757B40004B837 = {
 			isa = PBXGroup;
 			children = (
-				B86884F9182757B40004B837 /* SmoothGradient */,
-				B8688518182757B50004B837 /* SmoothGradientTests */,
+				B868852B182757E40004B837 /* SmoothGradient */,
+				B86884F9182757B40004B837 /* SampleApp */,
 				B86884F2182757B40004B837 /* Frameworks */,
 				B86884F1182757B40004B837 /* Products */,
 			);
@@ -94,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				B86884F0182757B40004B837 /* SmoothGradient.app */,
-				B8688511182757B50004B837 /* SmoothGradientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,7 +82,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B86884F9182757B40004B837 /* SmoothGradient */ = {
+		B86884F9182757B40004B837 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				B8688502182757B40004B837 /* JSTAppDelegate.h */,
@@ -118,11 +90,10 @@
 				B8688505182757B40004B837 /* Main.storyboard */,
 				B8688508182757B40004B837 /* JSTViewController.h */,
 				B8688509182757B40004B837 /* JSTViewController.m */,
-				B868852B182757E40004B837 /* Views */,
 				B868850B182757B40004B837 /* Images.xcassets */,
 				B86884FA182757B40004B837 /* Supporting Files */,
 			);
-			path = SmoothGradient;
+			path = SampleApp;
 			sourceTree = "<group>";
 		};
 		B86884FA182757B40004B837 /* Supporting Files */ = {
@@ -136,38 +107,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B8688518182757B50004B837 /* SmoothGradientTests */ = {
-			isa = PBXGroup;
-			children = (
-				B8688519182757B50004B837 /* Supporting Files */,
-			);
-			path = SmoothGradientTests;
-			sourceTree = "<group>";
-		};
-		B8688519182757B50004B837 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B868851A182757B50004B837 /* SmoothGradientTests-Info.plist */,
-				B868851B182757B50004B837 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B868852B182757E40004B837 /* Views */ = {
+		B868852B182757E40004B837 /* SmoothGradient */ = {
 			isa = PBXGroup;
 			children = (
 				B8688528182757DF0004B837 /* JSTGradientView.h */,
 				B8688529182757DF0004B837 /* JSTGradientView.m */,
 			);
-			name = Views;
+			path = SmoothGradient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B86884EF182757B40004B837 /* SmoothGradient */ = {
+		B86884EF182757B40004B837 /* SampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8688522182757B50004B837 /* Build configuration list for PBXNativeTarget "SmoothGradient" */;
+			buildConfigurationList = B8688522182757B50004B837 /* Build configuration list for PBXNativeTarget "SampleApp" */;
 			buildPhases = (
 				B86884EC182757B40004B837 /* Sources */,
 				B86884ED182757B40004B837 /* Frameworks */,
@@ -177,28 +131,10 @@
 			);
 			dependencies = (
 			);
-			name = SmoothGradient;
+			name = SampleApp;
 			productName = SmoothGradient;
 			productReference = B86884F0182757B40004B837 /* SmoothGradient.app */;
 			productType = "com.apple.product-type.application";
-		};
-		B8688510182757B50004B837 /* SmoothGradientTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B8688525182757B50004B837 /* Build configuration list for PBXNativeTarget "SmoothGradientTests" */;
-			buildPhases = (
-				B868850D182757B50004B837 /* Sources */,
-				B868850E182757B50004B837 /* Frameworks */,
-				B868850F182757B50004B837 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B8688517182757B50004B837 /* PBXTargetDependency */,
-			);
-			name = SmoothGradientTests;
-			productName = SmoothGradientTests;
-			productReference = B8688511182757B50004B837 /* SmoothGradientTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -209,11 +145,6 @@
 				CLASSPREFIX = JST;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Jernej Strasner";
-				TargetAttributes = {
-					B8688510182757B50004B837 = {
-						TestTargetID = B86884EF182757B40004B837;
-					};
-				};
 			};
 			buildConfigurationList = B86884EB182757B40004B837 /* Build configuration list for PBXProject "SmoothGradient" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -228,8 +159,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B86884EF182757B40004B837 /* SmoothGradient */,
-				B8688510182757B50004B837 /* SmoothGradientTests */,
+				B86884EF182757B40004B837 /* SampleApp */,
 			);
 		};
 /* End PBXProject section */
@@ -242,14 +172,6 @@
 				B868850C182757B40004B837 /* Images.xcassets in Resources */,
 				B86884FE182757B40004B837 /* InfoPlist.strings in Resources */,
 				B8688507182757B40004B837 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B868850F182757B50004B837 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B868851D182757B50004B837 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,22 +189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B868850D182757B50004B837 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B8688517182757B50004B837 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B86884EF182757B40004B837 /* SmoothGradient */;
-			targetProxy = B8688516182757B50004B837 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B86884FC182757B40004B837 /* InfoPlist.strings */ = {
@@ -299,14 +206,6 @@
 				B8688506182757B40004B837 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B868851B182757B50004B837 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B868851C182757B50004B837 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -388,8 +287,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmoothGradient/SmoothGradient-Prefix.pch";
-				INFOPLIST_FILE = "SmoothGradient/SmoothGradient-Info.plist";
+				GCC_PREFIX_HEADER = "SampleApp/SmoothGradient-Prefix.pch";
+				INFOPLIST_FILE = "SampleApp/SmoothGradient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,52 +302,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmoothGradient/SmoothGradient-Prefix.pch";
-				INFOPLIST_FILE = "SmoothGradient/SmoothGradient-Info.plist";
+				GCC_PREFIX_HEADER = "SampleApp/SmoothGradient-Prefix.pch";
+				INFOPLIST_FILE = "SampleApp/SmoothGradient-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		B8688526182757B50004B837 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmoothGradient.app/SmoothGradient";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmoothGradient/SmoothGradient-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SmoothGradientTests/SmoothGradientTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		B8688527182757B50004B837 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SmoothGradient.app/SmoothGradient";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SmoothGradient/SmoothGradient-Prefix.pch";
-				INFOPLIST_FILE = "SmoothGradientTests/SmoothGradientTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -464,20 +323,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8688522182757B50004B837 /* Build configuration list for PBXNativeTarget "SmoothGradient" */ = {
+		B8688522182757B50004B837 /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8688523182757B50004B837 /* Debug */,
 				B8688524182757B50004B837 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B8688525182757B50004B837 /* Build configuration list for PBXNativeTarget "SmoothGradientTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8688526182757B50004B837 /* Debug */,
-				B8688527182757B50004B837 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
