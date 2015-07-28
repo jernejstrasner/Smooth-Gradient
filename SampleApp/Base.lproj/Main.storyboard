@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PT5-y6-YdV">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
@@ -62,13 +61,13 @@
                             </connections>
                         </barButtonItem>
                         <slider key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="15" id="9Qc-FJ-33v">
-                            <rect key="frame" x="67" y="7" width="448" height="31"/>
+                            <rect key="frame" x="67" y="7" width="468" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <connections>
                                 <action selector="slopeFactorChanged:" destination="jAs-ix-hgd" eventType="valueChanged" id="aWI-5p-lai"/>
                             </connections>
                         </slider>
-                        <barButtonItem key="rightBarButtonItem" title="Reverse" id="88R-Ri-uZ8">
+                        <barButtonItem key="rightBarButtonItem" title="Invert" id="88R-Ri-uZ8">
                             <connections>
                                 <action selector="reverse:" destination="jAs-ix-hgd" id="GXd-dx-DS2"/>
                             </connections>

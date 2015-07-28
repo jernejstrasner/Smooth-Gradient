@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bbO-Sa-Twm">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DUC-tE-l2a">
+            <objects>
+                <navigationController id="bbO-Sa-Twm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z26-mb-pI7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1ee-KK-cX2" kind="relationship" relationship="rootViewController" id="urO-xz-V6z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SA2-AZ-j1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="540"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="B24-5T-tqW">
+            <objects>
+                <viewController id="1ee-KK-cX2" customClass="ViewController" customModule="SwiftSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="plE-vG-cnY"/>
+                        <viewControllerLayoutGuide type="bottom" id="sbT-iX-oH1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wBo-lC-8ym" customClass="JSTGradientView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slope factor: 2x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-If-jeF">
+                                <rect key="frame" x="8" y="574" width="102" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mvI-If-jeF" firstAttribute="leading" secondItem="wBo-lC-8ym" secondAttribute="leading" constant="8" id="9hP-VM-I4C"/>
+                            <constraint firstItem="sbT-iX-oH1" firstAttribute="top" secondItem="mvI-If-jeF" secondAttribute="bottom" constant="8" id="vlq-z3-Elb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Gw-zw-OWi">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="FwB-e0-jLI">
+                            <connections>
+                                <action selector="reset:" destination="1ee-KK-cX2" id="7Jm-ja-hwJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <slider key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="15" id="iNr-m5-ycL">
+                            <rect key="frame" x="67" y="7" width="468" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="factorChanged:" destination="1ee-KK-cX2" eventType="valueChanged" id="RMk-O9-3iU"/>
+                            </connections>
+                        </slider>
+                        <barButtonItem key="rightBarButtonItem" title="Invert" id="npM-Nu-F8G">
+                            <connections>
+                                <action selector="invert:" destination="1ee-KK-cX2" id="Wh7-eR-JKE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="factorLabel" destination="mvI-If-jeF" id="E6K-gf-WGH"/>
+                        <outlet property="gradientView" destination="wBo-lC-8ym" id="c5Y-AT-Vf8"/>
+                        <outlet property="slider" destination="iNr-m5-ycL" id="44I-DI-j67"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4s-WG-0ED" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="540"/>
+        </scene>
+    </scenes>
+</document>

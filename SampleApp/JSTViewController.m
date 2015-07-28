@@ -43,9 +43,7 @@
 
 - (IBAction)slopeFactorChanged:(UISlider *)sender
 {
-    float factor = log(sender.value);
-    printf("Factor: %f\n", factor);
-    self.gradientView.slopeFactor = factor;
+    self.gradientView.slopeFactor = log(sender.value);
     [self updateLabel];
 }
 

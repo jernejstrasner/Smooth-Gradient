@@ -59,6 +59,8 @@
 {
     self.contentMode = UIViewContentModeRedraw;
     colorSpace = CGColorSpaceCreateDeviceRGB();
+    self.startColor = [UIColor whiteColor];
+    self.endColor = [UIColor blackColor];
 }
 
 - (void)dealloc

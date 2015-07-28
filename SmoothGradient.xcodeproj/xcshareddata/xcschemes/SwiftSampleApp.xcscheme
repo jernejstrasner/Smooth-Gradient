@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B86884EF182757B40004B837"
-               BuildableName = "SampleApp.app"
-               BlueprintName = "SampleApp"
+               BlueprintIdentifier = "B8E2FAA01B67E99400DB7132"
+               BuildableName = "SwiftSampleApp.app"
+               BlueprintName = "SwiftSampleApp"
                ReferencedContainer = "container:SmoothGradient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8688510182757B50004B837"
-               BuildableName = "SmoothGradientTests.xctest"
-               BlueprintName = "SmoothGradientTests"
-               ReferencedContainer = "container:SmoothGradient.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SampleApp.app"
-            BlueprintName = "SampleApp"
+            BlueprintIdentifier = "B8E2FAA01B67E99400DB7132"
+            BuildableName = "SwiftSampleApp.app"
+            BlueprintName = "SwiftSampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,9 +52,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SampleApp.app"
-            BlueprintName = "SampleApp"
+            BlueprintIdentifier = "B8E2FAA01B67E99400DB7132"
+            BuildableName = "SwiftSampleApp.app"
+            BlueprintName = "SwiftSampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,9 +71,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B86884EF182757B40004B837"
-            BuildableName = "SampleApp.app"
-            BlueprintName = "SampleApp"
+            BlueprintIdentifier = "B8E2FAA01B67E99400DB7132"
+            BuildableName = "SwiftSampleApp.app"
+            BlueprintName = "SwiftSampleApp"
             ReferencedContainer = "container:SmoothGradient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
