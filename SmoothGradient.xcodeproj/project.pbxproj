@@ -17,6 +17,8 @@
 		B868850A182757B40004B837 /* JSTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688509182757B40004B837 /* JSTViewController.m */; };
 		B868850C182757B40004B837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B868850B182757B40004B837 /* Images.xcassets */; };
 		B868852A182757DF0004B837 /* JSTGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688529182757DF0004B837 /* JSTGradientView.m */; };
+		B8E2FA7A1B67E56000DB7132 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = B8E2FA781B67E56000DB7132 /* LICENSE.md */; };
+		B8E2FA7B1B67E56000DB7132 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8E2FA791B67E56000DB7132 /* README.md */; };
 		B8ECF53F1B67B79D00B38A85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8ECF53E1B67B79D00B38A85 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		B8688512182757B50004B837 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B8688528182757DF0004B837 /* JSTGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTGradientView.h; sourceTree = "<group>"; };
 		B8688529182757DF0004B837 /* JSTGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTGradientView.m; sourceTree = "<group>"; };
+		B8E2FA781B67E56000DB7132 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		B8E2FA791B67E56000DB7132 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8ECF53E1B67B79D00B38A85 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,8 @@
 		B86884E7182757B40004B837 = {
 			isa = PBXGroup;
 			children = (
+				B8E2FA781B67E56000DB7132 /* LICENSE.md */,
+				B8E2FA791B67E56000DB7132 /* README.md */,
 				B868852B182757E40004B837 /* SmoothGradient */,
 				B86884F9182757B40004B837 /* SampleApp */,
 				B86884F2182757B40004B837 /* Frameworks */,
@@ -186,6 +192,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E2FA7B1B67E56000DB7132 /* README.md in Sources */,
+				B8E2FA7A1B67E56000DB7132 /* LICENSE.md in Sources */,
 				B868850A182757B40004B837 /* JSTViewController.m in Sources */,
 				B8688504182757B40004B837 /* JSTAppDelegate.m in Sources */,
 				B868852A182757DF0004B837 /* JSTGradientView.m in Sources */,
