@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UDR-x3-d3w">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Iw-V5-xuT">
+            <objects>
+                <navigationController id="UDR-x3-d3w" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x3h-Da-aGo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PQb-t1-ncu" kind="relationship" relationship="rootViewController" id="TSy-zx-UAD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-2S-fF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="467" y="716"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aEg-KP-cFh">
+            <objects>
+                <viewController id="PQb-t1-ncu" customClass="ViewController" customModule="SwiftGradient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JPI-16-I3d"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7i-bG-CJD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qoo-gI-26Q" customClass="GradientView" customModule="SwiftGradient" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slope factor: 2x" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdM-Rl-Eon">
+                                <rect key="frame" x="8" y="574" width="107" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z7i-bG-CJD" firstAttribute="top" secondItem="VdM-Rl-Eon" secondAttribute="bottom" constant="8" id="Imo-0W-CjS"/>
+                            <constraint firstItem="VdM-Rl-Eon" firstAttribute="leading" secondItem="qoo-gI-26Q" secondAttribute="leading" constant="8" id="oOV-vV-lAQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ml0-zm-PeL">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="rHl-c6-Gkd">
+                            <connections>
+                                <action selector="reset" destination="PQb-t1-ncu" id="Ece-Iv-56V"/>
+                            </connections>
+                        </barButtonItem>
+                        <slider key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="15" id="mv8-fK-g4k">
+                            <rect key="frame" x="50" y="7" width="497" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="sliderChanged:" destination="PQb-t1-ncu" eventType="valueChanged" id="JMu-xB-ViJ"/>
+                            </connections>
+                        </slider>
+                        <barButtonItem key="rightBarButtonItem" title="Mirror" id="zJc-Yo-7c8">
+                            <connections>
+                                <action selector="toggleMirror" destination="PQb-t1-ncu" id="LLk-rZ-0et"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="factorLabel" destination="VdM-Rl-Eon" id="9tG-2r-NFV"/>
+                        <outlet property="gradientView" destination="qoo-gI-26Q" id="DMq-0W-S2l"/>
+                        <outlet property="slider" destination="mv8-fK-g4k" id="TVW-q0-2S4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6uF-xs-Mxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186" y="716"/>
+        </scene>
+    </scenes>
+</document>

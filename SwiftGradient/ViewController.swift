@@ -20,42 +20,38 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import UIKit
-import SmoothGradient
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var gradientView: JSTGradientView!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var factorLabel: UILabel!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        reset()
-    }
-
-    func reset() {
-        gradientView.reverse = false
+    @IBAction func reset() {
+        gradientView.mirror = false
         gradientView.slopeFactor = 2.0
         slider.value = Float(pow(M_E, 2.0))
         updateLabel()
     }
 
-    func updateLabel() {
-        factorLabel.text = String(format: "Slope factor: %0.4fx", gradientView.slopeFactor)
+    @IBAction func toggleMirror() {
+        gradientView.mirror = !gradientView.mirror
     }
 
-    @IBAction func factorChanged(sender: UISlider) {
+    @IBAction func sliderChanged(sender: UISlider) {
         gradientView.slopeFactor = CGFloat(logf(sender.value))
         updateLabel()
     }
 
-    @IBAction func reset(sender: AnyObject) {
+    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var factorLabel: UILabel!
+
+    func updateLabel() {
+        factorLabel.text = String(format: "Slope factor: %0.4fx", gradientView.slopeFactor)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        gradientView.endColor = UIColor(red: 0, green: 0, blue: 128.0/255.0, alpha: 1)
         reset()
     }
 
-    @IBAction func invert(sender: AnyObject) {
-        gradientView.reverse = !gradientView.reverse
-    }
 }
 

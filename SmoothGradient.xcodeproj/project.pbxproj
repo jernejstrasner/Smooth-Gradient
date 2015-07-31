@@ -16,6 +16,12 @@
 		B8688507182757B40004B837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8688505182757B40004B837 /* Main.storyboard */; };
 		B868850A182757B40004B837 /* JSTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688509182757B40004B837 /* JSTViewController.m */; };
 		B868850C182757B40004B837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B868850B182757B40004B837 /* Images.xcassets */; };
+		B88D46571B6904C000F0E240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D46561B6904C000F0E240 /* AppDelegate.swift */; };
+		B88D46591B6904C000F0E240 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D46581B6904C000F0E240 /* ViewController.swift */; };
+		B88D465C1B6904C000F0E240 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88D465A1B6904C000F0E240 /* Main.storyboard */; };
+		B88D465E1B6904C000F0E240 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88D465D1B6904C000F0E240 /* Assets.xcassets */; };
+		B88D46611B6904C000F0E240 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88D465F1B6904C000F0E240 /* LaunchScreen.storyboard */; };
+		B88D46671B6904E400F0E240 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D46661B6904E400F0E240 /* GradientView.swift */; };
 		B8E2FA861B67E8C100DB7132 /* SmoothGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E2FA851B67E8C100DB7132 /* SmoothGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E2FA9A1B67E8F000DB7132 /* JSTGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = B8688528182757DF0004B837 /* JSTGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8E2FA9B1B67E8F000DB7132 /* JSTGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8688529182757DF0004B837 /* JSTGradientView.m */; };
@@ -71,6 +77,14 @@
 		B868850B182757B40004B837 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B8688528182757DF0004B837 /* JSTGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTGradientView.h; sourceTree = "<group>"; };
 		B8688529182757DF0004B837 /* JSTGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTGradientView.m; sourceTree = "<group>"; };
+		B88D46541B6904C000F0E240 /* SwiftGradient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGradient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B88D46561B6904C000F0E240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B88D46581B6904C000F0E240 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B88D465B1B6904C000F0E240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B88D465D1B6904C000F0E240 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B88D46601B6904C000F0E240 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B88D46621B6904C000F0E240 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B88D46661B6904E400F0E240 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		B8E2FA781B67E56000DB7132 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		B8E2FA791B67E56000DB7132 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B8E2FA811B67E8C100DB7132 /* SmoothGradient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmoothGradient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +108,13 @@
 				B86884F6182757B40004B837 /* CoreGraphics.framework in Frameworks */,
 				B86884F8182757B40004B837 /* UIKit.framework in Frameworks */,
 				B86884F4182757B40004B837 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B88D46511B6904C000F0E240 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +145,7 @@
 				B86884F9182757B40004B837 /* SampleApp */,
 				B8E2FA821B67E8C100DB7132 /* SmoothGradient Framework */,
 				B8E2FAA21B67E99400DB7132 /* SwiftSampleApp */,
+				B88D46551B6904C000F0E240 /* SwiftGradient */,
 				B86884F2182757B40004B837 /* Frameworks */,
 				B86884F1182757B40004B837 /* Products */,
 			);
@@ -135,6 +157,7 @@
 				B86884F0182757B40004B837 /* SampleApp.app */,
 				B8E2FA811B67E8C100DB7132 /* SmoothGradient.framework */,
 				B8E2FAA11B67E99400DB7132 /* SwiftSampleApp.app */,
+				B88D46541B6904C000F0E240 /* SwiftGradient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +205,20 @@
 				B8688529182757DF0004B837 /* JSTGradientView.m */,
 			);
 			path = SmoothGradient;
+			sourceTree = "<group>";
+		};
+		B88D46551B6904C000F0E240 /* SwiftGradient */ = {
+			isa = PBXGroup;
+			children = (
+				B88D46561B6904C000F0E240 /* AppDelegate.swift */,
+				B88D46581B6904C000F0E240 /* ViewController.swift */,
+				B88D46661B6904E400F0E240 /* GradientView.swift */,
+				B88D465A1B6904C000F0E240 /* Main.storyboard */,
+				B88D465D1B6904C000F0E240 /* Assets.xcassets */,
+				B88D465F1B6904C000F0E240 /* LaunchScreen.storyboard */,
+				B88D46621B6904C000F0E240 /* Info.plist */,
+			);
+			path = SwiftGradient;
 			sourceTree = "<group>";
 		};
 		B8E2FA821B67E8C100DB7132 /* SmoothGradient Framework */ = {
@@ -255,6 +292,23 @@
 			productReference = B86884F0182757B40004B837 /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B88D46531B6904C000F0E240 /* SwiftGradient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B88D46651B6904C000F0E240 /* Build configuration list for PBXNativeTarget "SwiftGradient" */;
+			buildPhases = (
+				B88D46501B6904C000F0E240 /* Sources */,
+				B88D46511B6904C000F0E240 /* Frameworks */,
+				B88D46521B6904C000F0E240 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftGradient;
+			productName = SwiftGradient;
+			productReference = B88D46541B6904C000F0E240 /* SwiftGradient.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B8E2FA801B67E8C100DB7132 /* SmoothGradient */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8E2FA941B67E8C100DB7132 /* Build configuration list for PBXNativeTarget "SmoothGradient" */;
@@ -299,9 +353,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JST;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Jernej Strasner";
 				TargetAttributes = {
+					B88D46531B6904C000F0E240 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					B8E2FA801B67E8C100DB7132 = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -326,6 +384,7 @@
 				B86884EF182757B40004B837 /* SampleApp */,
 				B8E2FA801B67E8C100DB7132 /* SmoothGradient */,
 				B8E2FAA01B67E99400DB7132 /* SwiftSampleApp */,
+				B88D46531B6904C000F0E240 /* SwiftGradient */,
 			);
 		};
 /* End PBXProject section */
@@ -339,6 +398,16 @@
 				B868850C182757B40004B837 /* Images.xcassets in Resources */,
 				B86884FE182757B40004B837 /* InfoPlist.strings in Resources */,
 				B8688507182757B40004B837 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B88D46521B6904C000F0E240 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B88D46611B6904C000F0E240 /* LaunchScreen.storyboard in Resources */,
+				B88D465E1B6904C000F0E240 /* Assets.xcassets in Resources */,
+				B88D465C1B6904C000F0E240 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +439,16 @@
 				B8688504182757B40004B837 /* JSTAppDelegate.m in Sources */,
 				B8E2FA9C1B67E96500DB7132 /* JSTGradientView.m in Sources */,
 				B8688500182757B40004B837 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B88D46501B6904C000F0E240 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B88D46671B6904E400F0E240 /* GradientView.swift in Sources */,
+				B88D46591B6904C000F0E240 /* ViewController.swift in Sources */,
+				B88D46571B6904C000F0E240 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +494,22 @@
 				B8688506182757B40004B837 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B88D465A1B6904C000F0E240 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B88D465B1B6904C000F0E240 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B88D465F1B6904C000F0E240 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B88D46601B6904C000F0E240 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		B8E2FAA91B67E99400DB7132 /* Main.storyboard */ = {
@@ -531,6 +626,45 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B88D46631B6904C000F0E240 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SwiftGradient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jernejstrasner.SwiftGradient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B88D46641B6904C000F0E240 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SwiftGradient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jernejstrasner.SwiftGradient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -652,6 +786,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B88D46651B6904C000F0E240 /* Build configuration list for PBXNativeTarget "SwiftGradient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B88D46631B6904C000F0E240 /* Debug */,
+				B88D46641B6904C000F0E240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B8E2FA941B67E8C100DB7132 /* Build configuration list for PBXNativeTarget "SmoothGradient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -659,6 +801,7 @@
 				B8E2FA961B67E8C100DB7132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8E2FABD1B67E99400DB7132 /* Build configuration list for PBXNativeTarget "SwiftSampleApp" */ = {
 			isa = XCConfigurationList;
@@ -667,6 +810,7 @@
 				B8E2FABF1B67E99400DB7132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
