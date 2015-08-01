@@ -23,6 +23,7 @@ import UIKit
 
 public class GradientView: UIView {
 
+    /// The starting color of the gradient.
     @IBInspectable public var startColor = UIColor.whiteColor() {
         didSet {
             startColorComponents = Color(color: startColor)
@@ -31,6 +32,7 @@ public class GradientView: UIView {
         }
     }
 
+    /// End ending color of the gradient.
     @IBInspectable public var endColor = UIColor.darkGrayColor() {
         didSet {
             endColorComponents = Color(color: endColor)
@@ -39,31 +41,36 @@ public class GradientView: UIView {
         }
     }
 
-    @IBInspectable public var slopeFactor: CGFloat = 2.0 {
+    /// The interpolation factor of the gradient. This defines how smooth the color transition is.
+    @IBInspectable public var interpolationFactor: CGFloat = 2.0 {
         didSet {
             setupShadingFunction()
             setNeedsDisplay()
         }
     }
 
+    /// If YES the gradient is drawn before the start point.
     @IBInspectable public var drawsBeforeStart: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
 
+    /// If YES the gradient is drawn past the end point.
     @IBInspectable public var drawsAfterEnd: Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
 
+    /// The location of the gradient drawing start relative to the view's coordinate space (0.0 - 1.0).
     @IBInspectable public var startPoint: CGPoint = CGPoint(x: 0.5, y: 0) {
         didSet {
             setNeedsDisplay()
         }
     }
 
+    /// The location of the gradient drawing end relative to the view's coordinate space (0.0 - 1.0).
     @IBInspectable public var endPoint: CGPoint = CGPoint(x: 0.5, y: 1) {
         didSet {
             setNeedsDisplay()
@@ -102,7 +109,7 @@ public class GradientView: UIView {
         shadingFunctionInfo.memory = FunctionInfo(
             startColor: startColorComponents,
             endColor: endColorComponents,
-            slopeFactor: slopeFactor
+            slopeFactor: interpolationFactor
         )
 
         // Create the function callbacks
