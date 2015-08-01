@@ -47,10 +47,10 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="value" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -58,7 +58,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Reset" id="FwB-e0-jLI">
                             <connections>
-                                <action selector="reset:" destination="1ee-KK-cX2" id="7Jm-ja-hwJ"/>
+                                <action selector="reset" destination="1ee-KK-cX2" id="3R5-Hh-8hd"/>
                             </connections>
                         </barButtonItem>
                         <slider key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="15" id="iNr-m5-ycL">
@@ -70,7 +70,7 @@
                         </slider>
                         <barButtonItem key="rightBarButtonItem" title="Invert" id="npM-Nu-F8G">
                             <connections>
-                                <action selector="invert:" destination="1ee-KK-cX2" id="Wh7-eR-JKE"/>
+                                <action selector="invert" destination="1ee-KK-cX2" id="5l8-KO-bEz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

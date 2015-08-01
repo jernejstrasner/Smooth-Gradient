@@ -21,14 +21,6 @@ class ViewController: UIViewController {
         reset()
     }
 
-    func reset() {
-        gradientView.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientView.endPoint = CGPoint(x: 0.5, y: 1)
-        gradientView.interpolationFactor = 2.0
-        slider.value = Float(pow(M_E, 2.0))
-        updateLabel()
-    }
-
     func updateLabel() {
         factorLabel.text = String(format: "Slope factor: %0.4fx", gradientView.interpolationFactor)
     }
@@ -38,11 +30,15 @@ class ViewController: UIViewController {
         updateLabel()
     }
 
-    @IBAction func reset(sender: AnyObject) {
-        reset()
+    @IBAction func reset() {
+        gradientView.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientView.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientView.interpolationFactor = 2.0
+        slider.value = Float(pow(M_E, 2.0))
+        updateLabel()
     }
 
-    @IBAction func invert(sender: AnyObject) {
+    @IBAction func invert() {
         swap(&gradientView.startPoint, &gradientView.endPoint)
     }
 }
