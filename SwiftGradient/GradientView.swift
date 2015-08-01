@@ -23,20 +23,6 @@ import UIKit
 
 public class GradientView: UIView {
 
-    @IBInspectable public var slopeFactor: CGFloat = 2.0 {
-        didSet {
-            setupShadingFunction()
-            setNeedsDisplay()
-        }
-    }
-
-    @IBInspectable public var mirror: Bool = false {
-        didSet {
-            setupShadingFunction()
-            setNeedsDisplay()
-        }
-    }
-
     @IBInspectable public var startColor = UIColor.whiteColor() {
         didSet {
             startColorComponents = Color(color: startColor)
@@ -53,6 +39,13 @@ public class GradientView: UIView {
         }
     }
 
+    @IBInspectable public var slopeFactor: CGFloat = 2.0 {
+        didSet {
+            setupShadingFunction()
+            setNeedsDisplay()
+        }
+    }
+
     @IBInspectable public var drawsBeforeStart: Bool = false {
         didSet {
             setNeedsDisplay()
@@ -60,6 +53,18 @@ public class GradientView: UIView {
     }
 
     @IBInspectable public var drawsAfterEnd: Bool = false {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable public var startPoint: CGPoint = CGPoint(x: 0.5, y: 0) {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable public var endPoint: CGPoint = CGPoint(x: 0.5, y: 1) {
         didSet {
             setNeedsDisplay()
         }
@@ -95,8 +100,8 @@ public class GradientView: UIView {
     private func setupShadingFunction() {
         // Data to pass to shading function
         shadingFunctionInfo.memory = FunctionInfo(
-            startColor: mirror ? endColorComponents : startColorComponents,
-            endColor: mirror ? startColorComponents : endColorComponents,
+            startColor: startColorComponents,
+            endColor: endColorComponents,
             slopeFactor: slopeFactor
         )
 
@@ -127,8 +132,8 @@ public class GradientView: UIView {
         let context = UIGraphicsGetCurrentContext()
 
         // Start and ending points
-        let startPoint = CGPoint(x: 1, y: 0)
-        let endPoint = CGPoint(x: 1, y: rect.size.height)
+        let startPoint = CGPoint(x: self.startPoint.x * rect.size.width, y: self.startPoint.y * rect.size.height)
+        let endPoint = CGPoint(x: self.endPoint.x * rect.size.width, y: self.endPoint.y * rect.size.height)
 
         // Create the shading object
         let shading = CGShadingCreateAxial(colorSpace, startPoint, endPoint, shadingFunction, drawsBeforeStart, drawsAfterEnd)

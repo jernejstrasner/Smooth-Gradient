@@ -23,25 +23,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var factorLabel: UILabel!
+
     @IBAction func reset() {
-        gradientView.mirror = false
+        gradientView.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientView.endPoint = CGPoint(x: 0.5, y: 1)
         gradientView.slopeFactor = 2.0
         slider.value = Float(pow(M_E, 2.0))
         updateLabel()
     }
 
     @IBAction func toggleMirror() {
-        gradientView.mirror = !gradientView.mirror
+        swap(&gradientView.startPoint, &gradientView.endPoint)
     }
 
     @IBAction func sliderChanged(sender: UISlider) {
         gradientView.slopeFactor = CGFloat(logf(sender.value))
         updateLabel()
     }
-
-    @IBOutlet weak var gradientView: GradientView!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var factorLabel: UILabel!
 
     func updateLabel() {
         factorLabel.text = String(format: "Slope factor: %0.4fx", gradientView.slopeFactor)
