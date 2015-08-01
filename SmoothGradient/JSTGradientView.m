@@ -21,13 +21,6 @@
 
 #import "JSTGradientView.h"
 
-#define SyntesizeRedrawableProperty(setter, ivar, type) \
-- (void)setter:(type)value { \
-    if (ivar == value) return; \
-    ivar = value; \
-    [self setNeedsDisplay]; \
-}
-
 @implementation JSTGradientView {
     CGColorSpaceRef colorSpace;
     CGFloat startColorComps[4];
@@ -36,9 +29,7 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    [self setup];
-    return self;
+    return [self initWithFrame:CGRectZero];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -61,6 +52,8 @@
     colorSpace = CGColorSpaceCreateDeviceRGB();
     self.startColor = [UIColor whiteColor];
     self.endColor = [UIColor blackColor];
+    self.startPoint = CGPointMake(0.5, 0);
+    self.endPoint = CGPointMake(1.5, 1);
 }
 
 - (void)dealloc
@@ -68,15 +61,20 @@
     CGColorSpaceRelease(colorSpace);
 }
 
-SyntesizeRedrawableProperty(setReverse, _reverse, BOOL)
-SyntesizeRedrawableProperty(setSlopeFactor, _slopeFactor, CGFloat)
+- (void)setInterpolationFactor:(CGFloat)interpolationFactor
+{
+    if (_interpolationFactor == interpolationFactor) return;
+    _interpolationFactor = interpolationFactor;
+    [self setNeedsDisplay];
+}
 
 - (void)setStartColor:(UIColor *)startColor
 {
     if (_startColor == startColor) return;
     _startColor = startColor;
 
-    GetColorComponents(startColor.CGColor, startColorComps);
+    [startColor getRed:startColorComps green:startColorComps+1 blue:startColorComps+2 alpha:startColorComps+3];
+
     [self setNeedsDisplay];
 }
 
@@ -85,15 +83,37 @@ SyntesizeRedrawableProperty(setSlopeFactor, _slopeFactor, CGFloat)
     if (_endColor == endColor) return;
     _endColor = endColor;
 
-    GetColorComponents(endColor.CGColor, endColorComps);
+    [endColor getRed:endColorComps green:endColorComps+1 blue:endColorComps+2 alpha:endColorComps+3];
+
     [self setNeedsDisplay];
 }
 
-void GetColorComponents(CGColorRef color, CGFloat *outComponents) {
-    size_t numberOfComponents = CGColorGetNumberOfComponents(color);
-    if (numberOfComponents != 4) assert("Only RGBA colors supported!");
-    const CGFloat *components = CGColorGetComponents(color);
-    memcpy(outComponents, components, sizeof(CGFloat)*numberOfComponents);
+- (void)setDrawsBeforeStart:(BOOL)drawsBeforeStart
+{
+    if (_drawsBeforeStart == drawsBeforeStart) return;
+    _drawsBeforeStart = drawsBeforeStart;
+    [self setNeedsDisplay];
+}
+
+- (void)setDrawsAfterEnd:(BOOL)drawsAfterEnd
+{
+    if (_drawsAfterEnd == drawsAfterEnd) return;
+    _drawsAfterEnd = drawsAfterEnd;
+    [self setNeedsDisplay];
+}
+
+- (void)setStartPoint:(CGPoint)startPoint
+{
+    if (CGPointEqualToPoint(_startPoint, startPoint)) return;
+    _startPoint = startPoint;
+    [self setNeedsDisplay];
+}
+
+- (void)setEndPoint:(CGPoint)endPoint
+{
+    if (CGPointEqualToPoint(_endPoint, endPoint)) return;
+    _endPoint = endPoint;
+    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -102,13 +122,10 @@ void GetColorComponents(CGColorRef color, CGFloat *outComponents) {
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // Shading function info
-    CGFloat functionInfo[9];
-    // First color
-    memcpy(functionInfo, (_reverse ? endColorComps : startColorComps), sizeof(CGFloat)*4);
-    // Second color
-    memcpy(functionInfo+4, (_reverse ? startColorComps : endColorComps), sizeof(CGFloat)*4);
-    // Slope factor
-    functionInfo[8] = _slopeFactor;
+    JSTFunctionInfo functionInfo;
+    memcpy(functionInfo.startColor, startColorComps, sizeof(CGFloat)*4);
+    memcpy(functionInfo.endColor, endColorComps, sizeof(CGFloat)*4);
+    functionInfo.slopeFactor = self.interpolationFactor;
 
     // Define the shading callbacks
     CGFunctionCallbacks callbacks = {0, shadingFunction, NULL};
@@ -129,10 +146,12 @@ void GetColorComponents(CGColorRef color, CGFloat *outComponents) {
     };
 
     // Create the shading function
-    CGFunctionRef function = CGFunctionCreate(functionInfo, domainDimension, domain, rangeDimension, range, &callbacks);
+    CGFunctionRef function = CGFunctionCreate(&functionInfo, domainDimension, domain, rangeDimension, range, &callbacks);
 
     // Create the shading object
-    CGShadingRef shading = CGShadingCreateAxial(colorSpace, CGPointMake(1, rect.size.height), CGPointMake(1, 0), function, YES, YES);
+    CGPoint startPoint = CGPointMake(self.startPoint.x * rect.size.width, self.startPoint.y * rect.size.height);
+    CGPoint endPoint = CGPointMake(self.endPoint.x * rect.size.width, self.endPoint.y * rect.size.height);
+    CGShadingRef shading = CGShadingCreateAxial(colorSpace, startPoint, endPoint, function, self.drawsBeforeStart, self.drawsAfterEnd);
 
     // Draw the shading
     CGContextDrawShading(context, shading);
@@ -146,16 +165,15 @@ void GetColorComponents(CGColorRef color, CGFloat *outComponents) {
 // info:    color and slope information
 // inData:  contains a single float that gives is the current position within the gradient
 // outData: we fill this with the color to display at the given position
-static void shadingFunction(void *info, const CGFloat *inData, CGFloat *outData)
+static void shadingFunction(void *infoPtr, const CGFloat *inData, CGFloat *outData)
 {
-    CGFloat *colors = info; // Pointer to the components of the 2 colors we're interpolating
-    CGFloat slopeFactor = colors[8]; // Slope factor stored in the colors array
+    JSTFunctionInfo info = *(JSTFunctionInfo*)infoPtr; // Info struct with colors and parameters
     float p = inData[0]; // Position in gradient
-    float q = slope(p, slopeFactor); // Slope value
-    outData[0] = colors[0] + (colors[4] - colors[0])*q;
-    outData[1] = colors[1] + (colors[5] - colors[1])*q;
-    outData[2] = colors[2] + (colors[6] - colors[2])*q;
-    outData[3] = colors[3] + (colors[7] - colors[3])*q;
+    float q = slope(p, info.slopeFactor); // Slope value
+    outData[0] = info.startColor[0] + (info.endColor[0] - info.startColor[0])*q;
+    outData[1] = info.startColor[1] + (info.endColor[1] - info.startColor[1])*q;
+    outData[2] = info.startColor[2] + (info.endColor[2] - info.startColor[2])*q;
+    outData[3] = info.startColor[3] + (info.endColor[3] - info.startColor[3])*q;
 }
 
 // Distributes values on a slope aka. ease-in ease-out
@@ -164,5 +182,13 @@ static float slope(float x, float A)
     float p = powf(x, A);
     return p/(p + powf(1.0f-x, A));
 }
+
+// Info struct to pass to shading function
+struct _JSTFunctionInfo {
+    CGFloat startColor[4];
+    CGFloat endColor[4];
+    CGFloat slopeFactor;
+};
+typedef struct _JSTFunctionInfo JSTFunctionInfo;
 
 @end
