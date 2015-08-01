@@ -23,9 +23,25 @@
 
 @interface JSTGradientView : UIView
 
-@property (nonatomic, assign) IBInspectable CGFloat slopeFactor;
-@property (nonatomic, assign) IBInspectable BOOL reverse;
+/// The starting color of the gradient.
 @property (nonatomic, retain, nonnull) IBInspectable UIColor *startColor;
+
+/// End ending color of the gradient.
 @property (nonatomic, retain, nonnull) IBInspectable UIColor *endColor;
+
+/// The interpolation factor of the gradient. This defines how smooth the color transition is.
+@property (nonatomic, assign) IBInspectable CGFloat interpolationFactor;
+
+/// If YES the gradient is drawn before the start point.
+@property (nonatomic, assign) IBInspectable BOOL drawsBeforeStart;
+
+/// If YES the gradient is drawn past the end point.
+@property (nonatomic, assign) IBInspectable BOOL drawsAfterEnd;
+
+/// The location of the gradient drawing start relative to the view's coordinate space (0.0 - 1.0).
+@property (nonatomic, assign) IBInspectable CGPoint startPoint;
+
+/// The location of the gradient drawing end relative to the view's coordinate space (0.0 - 1.0).
+@property (nonatomic, assign) IBInspectable CGPoint endPoint;
 
 @end

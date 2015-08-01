@@ -38,26 +38,29 @@
 
 - (IBAction)reverse:(id)sender
 {
-    self.gradientView.reverse = !self.gradientView.reverse;
+    CGPoint startPoint = self.gradientView.startPoint;
+    self.gradientView.startPoint = self.gradientView.endPoint;
+    self.gradientView.endPoint = startPoint;
 }
 
 - (IBAction)slopeFactorChanged:(UISlider *)sender
 {
-    self.gradientView.slopeFactor = log(sender.value);
+    self.gradientView.interpolationFactor = log(sender.value);
     [self updateLabel];
 }
 
 - (void)reset
 {
-    self.gradientView.reverse = NO;
-    self.gradientView.slopeFactor = 2.0f;
+    self.gradientView.startPoint = CGPointMake(0.5, 0);
+    self.gradientView.endPoint = CGPointMake(0.5, 1);
+    self.gradientView.interpolationFactor = 2.0f;
     self.slider.value = pow(M_E, 2.0f);
     [self updateLabel];
 }
 
 - (void)updateLabel
 {
-    self.factorLabel.text = [NSString stringWithFormat:@"Slope factor: %0.4fx", self.gradientView.slopeFactor];
+    self.factorLabel.text = [NSString stringWithFormat:@"Slope factor: %0.4fx", self.gradientView.interpolationFactor];
 }
 
 @end
